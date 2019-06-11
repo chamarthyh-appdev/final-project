@@ -1,0 +1,54 @@
+<h1>
+  Casebook #<%= @casebook.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/casebooks">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_casebook_form/<%= @casebook.id %>">
+      Edit casebook
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_casebook/<%= @casebook.id %>">
+      Delete casebook
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Casebook name
+  </dt>
+  <dd>
+    <%= @casebook.casebook_name %>
+  </dd>
+
+  <dt>
+    Url
+  </dt>
+  <dd>
+    <%= @casebook.url %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@casebook.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@casebook.updated_at) %> ago
+  </dd>
+</dl>
+

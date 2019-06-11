@@ -1,0 +1,51 @@
+<h1>
+  Edit log #<%= @log.id %>
+</h1>
+
+<hr>
+
+<%= render("log_templates/validation_failures.html.erb") %>
+
+<form action="/update_log_record/<%= @log.id %>" method="post">
+  <div>
+    <label for="student_id">
+      Student
+    </label>
+
+    <input type="text" id="student_id" name="student_id" value="<%= @log.student_id %>">
+  </div>
+
+  <div>
+    <label for="case_id">
+      Case
+    </label>
+
+    <input type="text" id="case_id" name="case_id" value="<%= @log.case_id %>">
+  </div>
+
+  <div>
+    <label for="given_by">
+      Given by
+    </label>
+
+    <input type="text" id="given_by" name="given_by" value="<%= @log.given_by %>">
+  </div>
+
+  <div>
+    <label for="feedback">
+      Feedback
+    </label>
+
+    <input type="text" id="feedback" name="feedback" value="<%= @log.feedback %>">
+  </div>
+
+  <button>
+    Update log
+  </button>
+</form>
+
+<hr>
+
+<a href="/logs">
+  Go back
+</a>

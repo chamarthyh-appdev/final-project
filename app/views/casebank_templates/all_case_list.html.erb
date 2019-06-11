@@ -1,0 +1,120 @@
+<div class="container">
+    <div class="row Instructions">
+        <div class="col-sm-12">
+    
+        <h1>Case List</h1>
+        <h4>Use the filters to find the most relevant cases for you</h4>
+        </div>
+    </div>
+
+  <%= search_form_for @q do |f| %>
+    <p class="lead"></p>
+    <div class="row Filters">
+       
+    
+    
+    <div class="col-sm-3">
+       <!-- <div class="form-group"> -->
+          <%= f.label :case_name_cont, "Case Name" %>
+          <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
+        <!--</div>-->
+      </div>
+      
+    <div class="col-sm-3">
+    
+     <!-- <div class="form-group"> -->
+        <%= f.label :difficulty_eq, "Difficulty" %>
+        <%= f.select :difficulty_eq, options_for_select(["easy", "medium", "hard"]), { :include_blank => "(Select Difficulty)" }, :class => "form-control" %>
+     <!-- </div> -->
+     </div>
+      
+      <div class="col-sm-3">
+    
+        <!--<div class="form-group">-->
+          <%= f.label :is_brainstorm_eq, "Brainstorm Heavy?" %>
+          <%= f.select :is_brainstorm_eq, options_for_select(["true", "false"]), { :include_blank => "(Select T/F)" }, :class => "form-control" %>
+        <!--</div>-->
+      </div>
+      
+     
+     
+      
+  
+      <div class="col-sm-3">
+        <%= f.submit :class => "btn btn-primary btn-block" %>
+        
+        <a href="/casebanks" class="btn btn-default btn-block">Clear filters</a>
+      </div>
+      
+      </div>
+    <% end %>
+    
+</div>
+
+<div class="row Table">
+  
+  <div class="col-sm-12">
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Case Name</th>
+        <th>Difficulty</th>
+        <th>Case Type</th>
+        <th>Industry</th>
+        <th>Good for Brainstorming?</th>
+        <th>Good for Math?</th>
+        <th># of Exhibits</th>
+        <th>Case Book</th>
+      </tr>
+      </thead>
+    
+      <% @cases_displayed.order({ :created_at => :asc }).each do |mockcase| %>
+      <tbody>
+      <tr>
+        <td>
+          <%= mockcase.title %>
+        </td>
+    
+        <td>
+          <%= mockcase.difficulty.titleize %>
+        </td>
+    
+         <td>
+          <%= mockcase.case_type.titleize %>
+        </td>
+        <td>
+          <%= mockcase.industry.titleize %>
+        </td>
+        
+        <td>
+          <%= if mockcase.is_brainstorm
+              then "Yes"
+              else "No"
+              end%>
+        </td>
+        
+        <td>
+          <%= if mockcase.is_math_heavy == "1"
+              then "Yes"
+              else "No"
+              end %>
+        </td>
+        
+        <td>
+          <%= mockcase.num_exhibits %>
+        </td>
+        
+        <td>
+          <a href = "https://northwestern.app.box.com/s/47jo3cmxqzbww1tmgma8nywlsze2ej13/file/321872053956" target="_blank">
+            Kellogg 2018
+          </a>
+        </td>
+      </tr>
+      </tbody>
+       <% end %>
+    
+    </table>
+    
+  </div>
+</div>

@@ -1,0 +1,103 @@
+<h1>
+  Cases  #<%= @cases_.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/cases_s">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_cases__form/<%= @cases_.id %>">
+      Edit cases 
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_cases_/<%= @cases_.id %>">
+      Delete cases 
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @cases_.title %>
+  </dd>
+
+  <dt>
+    Difficulty
+  </dt>
+  <dd>
+    <%= @cases_.difficulty %>
+  </dd>
+
+  <dt>
+    Is brainstorm
+  </dt>
+  <dd>
+    <%= @cases_.is_brainstorm %>
+  </dd>
+
+  <dt>
+    Num exhibits
+  </dt>
+  <dd>
+    <%= @cases_.num_exhibits %>
+  </dd>
+
+  <dt>
+    Casebook
+  </dt>
+  <dd>
+    <%= @cases_.casebook_id %>
+  </dd>
+
+  <dt>
+    Is math heavy
+  </dt>
+  <dd>
+    <%= @cases_.is_math_heavy %>
+  </dd>
+
+  <dt>
+    Case type
+  </dt>
+  <dd>
+    <%= @cases_.case_type %>
+  </dd>
+
+  <dt>
+    Industry
+  </dt>
+  <dd>
+    <%= @cases_.industry %>
+  </dd>
+
+  <dt>
+    Is interviewer led
+  </dt>
+  <dd>
+    <%= @cases_.is_interviewer_led %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@cases_.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@cases_.updated_at) %> ago
+  </dd>
+</dl>
+

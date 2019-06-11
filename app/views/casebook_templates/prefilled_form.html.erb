@@ -1,0 +1,35 @@
+<h1>
+  Edit casebook #<%= @casebook.id %>
+</h1>
+
+<hr>
+
+<%= render("casebook_templates/validation_failures.html.erb") %>
+
+<form action="/update_casebook_record/<%= @casebook.id %>" method="post">
+  <div>
+    <label for="casebook_name">
+      Casebook name
+    </label>
+
+    <input type="text" id="casebook_name" name="casebook_name" value="<%= @casebook.casebook_name %>">
+  </div>
+
+  <div>
+    <label for="url">
+      Url
+    </label>
+
+    <input type="text" id="url" name="url" value="<%= @casebook.url %>">
+  </div>
+
+  <button>
+    Update casebook
+  </button>
+</form>
+
+<hr>
+
+<a href="/casebooks">
+  Go back
+</a>

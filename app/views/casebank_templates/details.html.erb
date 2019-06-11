@@ -1,0 +1,103 @@
+<h1>
+  Casebank #<%= @casebank.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/casebanks">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_casebank_form/<%= @casebank.id %>">
+      Edit casebank
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_casebank/<%= @casebank.id %>">
+      Delete casebank
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @casebank.title %>
+  </dd>
+
+  <dt>
+    Difficulty
+  </dt>
+  <dd>
+    <%= @casebank.difficulty %>
+  </dd>
+
+  <dt>
+    Is brainstorm
+  </dt>
+  <dd>
+    <%= @casebank.is_brainstorm %>
+  </dd>
+
+  <dt>
+    Num exhibits
+  </dt>
+  <dd>
+    <%= @casebank.num_exhibits %>
+  </dd>
+
+  <dt>
+    Casebook
+  </dt>
+  <dd>
+    <%= @casebank.casebook_id %>
+  </dd>
+
+  <dt>
+    Is math heavy
+  </dt>
+  <dd>
+    <%= @casebank.is_math_heavy %>
+  </dd>
+
+  <dt>
+    Case type
+  </dt>
+  <dd>
+    <%= @casebank.case_type %>
+  </dd>
+
+  <dt>
+    Industry
+  </dt>
+  <dd>
+    <%= @casebank.industry %>
+  </dd>
+
+  <dt>
+    Is interviewer led
+  </dt>
+  <dd>
+    <%= @casebank.is_interviewer_led %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@casebank.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@casebank.updated_at) %> ago
+  </dd>
+</dl>
+

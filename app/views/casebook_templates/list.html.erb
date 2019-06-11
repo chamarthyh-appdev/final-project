@@ -1,0 +1,66 @@
+<h1>
+  Casebook list
+</h1>
+
+<a href="/new_casebook_form">
+  Add a new casebook
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Casebook name
+    </th>
+
+    <th>
+      Url
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @casebooks.each do |casebook| %>
+  <tr>
+    <td>
+      <%= casebook.id %>
+    </td>
+
+    <td>
+      <%= casebook.casebook_name %>
+    </td>
+
+    <td>
+      <%= casebook.url %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(casebook.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(casebook.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/casebooks/<%= casebook.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

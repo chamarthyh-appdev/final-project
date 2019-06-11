@@ -1,0 +1,72 @@
+<h1>
+  Log list
+</h1>
+
+<a href="/new_log_entry">
+  Add a new log
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Student
+    </th>
+
+    <th>
+      Case
+    </th>
+
+    <th>
+      Given by
+    </th>
+
+    <th>
+      Feedback
+    </th>
+
+    <th>
+      Date Given
+    </th>
+
+  </tr>
+
+  <% @logs.each do |log| %>
+  <tr>
+    <td>
+      <%= log.id %>
+    </td>
+
+    <td>
+      <%= log.student_id %>
+    </td>
+
+    <td>
+      <%= log.case_id %>
+    </td>
+
+    <td>
+      <%= log.given_by %>
+    </td>
+
+    <td>
+      <%= log.feedback %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(log.created_at) %> ago
+    </td>
+
+    <td>
+      <a href="/logs/<%= log.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

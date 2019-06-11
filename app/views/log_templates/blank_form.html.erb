@@ -1,0 +1,53 @@
+<h1>
+  Hello <%= current_user.name %>, add a new case log entry below: 
+</h1>
+
+<hr>
+
+
+
+
+
+<form action="/insert_log_record" method="post">
+  <div>
+    <label for="student_id">
+      Student
+    </label>
+
+    <input type="text" id="student_id" name="student_id" value="<%= @student_id %>">
+  </div>
+
+  <div>
+    <label for="case_id">
+      Case
+    </label>
+
+    <input type="text" id="case_id" name="case_id" placeholder="Choose a case">
+  </div>
+
+  <div>
+    <label for="given_by">
+      Given by
+    </label>
+
+    <input type="text" id="given_by" name="given_by" placeholder="Enter a name...">
+  </div>
+
+  <div>
+    <label for="feedback">
+      Feedback
+    </label>
+
+    <input type="text" id="feedback" name="feedback" placeholder="Type in your feedback">
+  </div>
+
+  <button>
+    Create log
+  </button>
+</form>
+
+<hr>
+
+<a href="/logs">
+  Go back
+</a>

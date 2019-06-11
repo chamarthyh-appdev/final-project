@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Change Me!</title>
+    <title>KCC Case Tracker</title>
 
     <!-- Expand the characters we can use beyond basic ASCII 🎉 -->
     <meta charset="utf-8">
 
     <!-- Connect the latest light.css to override browser default styles. -->
     <!-- You should replace this with a real stylesheet ASAP; probably Bootstrap, commented out below. -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
-
+   
     <!-- Connect Font Awesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
@@ -25,20 +24,96 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 
     <!-- Connect Bootstrap JavaScript -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- Make it responsive to small screens -->
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
     <!-- END BOOTSTRAP -->
+    <link rel="stylesheet" href="/bootstrap.css">
+   
   </head>
+  
 
   <body>
-
-    <!-- ↓↓↓ Your view templates all get plugged in below ↓↓↓ -->
-    <%= yield %>
-    <!-- ↑↑↑ Your view templates all get plugged in above ↑↑↑ -->
     
+<div class="container">
+    <div class="row Header">
+        <div class="col-md-3">
+          
+          <nav>
+            <div>
+              <a href="/">
+                <i class="fas fa-home"></i>
+      
+                Home
+              </a>
+            </div>
+      
+            <div>
+              <a href="/casebanks">
+                <i class="fas fa-search"></i>
+                Search for Cases
+              </a>
+            </div>
+      
+            <div>
+              <a href="/case_log">
+                <i class="fas fa-book"></i>
+      
+                Your Case Log
+              </a>
+            </div>
+      
+            <div>
+              <a href="/case_resources">
+               <i class="fas fa-tools"></i>
+      
+                KCC Resources
+              </a>
+            </div>
+            
+            <% if current_user.blank? %>
+              <div>
+                <a href="/users/sign_in">
+                  Sign in
+                </a>
+              </div>
+      
+              <div>
+                <a href="/users/sign_up">
+                  Sign up
+                </a>
+              </div>
+            <% else %>
+              <div>
+                <a href="/users/edit">
+                  Edit profile
+                </a>
+              </div>
+      
+              <div>
+                <a href="/users/sign_out" data-method="delete">
+                  Sign out
+                </a>
+              </div>
+            <% end %>
+      
+          </nav>
+    </div>
+    
+    <div class="col-md-9"></div>
+    
+         <center>
+         <img src="https://kellogg.campusgroups.com/upload/kellogg/2018/web_upload_543334KCC_Logo_101624017_crop.png" style="width:600px;height:240px;">
+        </center>
+    </div>
+  </div>
+  </div>
+
+    <%= yield %>
   </body>
+    
+ 
 </html>

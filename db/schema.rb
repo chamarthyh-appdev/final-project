@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221161615) do
+ActiveRecord::Schema.define(version: 20190605185739) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -41,6 +41,64 @@ ActiveRecord::Schema.define(version: 20180221161615) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "casebanks", force: :cascade do |t|
+    t.string "title"
+    t.string "difficulty"
+    t.boolean "is_brainstorm"
+    t.integer "num_exhibits"
+    t.integer "casebook_id"
+    t.string "is_math_heavy"
+    t.string "case_type"
+    t.string "industry"
+    t.boolean "is_interviewer_led"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "casebooks", force: :cascade do |t|
+    t.string "casebook_name"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cases_s", force: :cascade do |t|
+    t.string "title"
+    t.string "difficulty"
+    t.boolean "is_brainstorm"
+    t.integer "num_exhibits"
+    t.integer "casebook_id"
+    t.string "is_math_heavy"
+    t.string "case_type"
+    t.string "industry"
+    t.boolean "is_interviewer_led"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "case_id"
+    t.string "given_by"
+    t.string "feedback"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name"
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

@@ -1,0 +1,11 @@
+title,difficulty,is_brainstorm,num_exhibits,casebook_id,is_math_heavy,case_type,industry,interviewer_led
+Maine Apples,medium,0,0,1,1,new product/market entry,consumer products,0
+Kellogg in India,high,0,3,1,1,market entry,non-profit,0
+Rotisserie Ranch,low,0,1,1,0,new product/market entry,consumer products,1
+Tarrant Fixtures,medium,0,0,1,1,profitability,industrial goods,0
+Portkey Inc.,medium,0,1,1,0,new product/market entry,transportation,0
+Salty Sole Shoe Co.,medium,1,2,1,1,profitability,retail,0
+Money Bank Call Center,high,1,1,1,1,cost/M&A,call center,0
+Shermer Pharma,medium,0,2,1,0,new product/market entry,healthcare,0
+DigiBooks Inc.,easy,1,2,1,0,new product/market entry,tech,1
+Zoo Co.,medium,0,1,1,0,M&A,financial services,0

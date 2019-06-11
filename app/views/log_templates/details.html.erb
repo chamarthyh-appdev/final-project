@@ -1,0 +1,68 @@
+<h1>
+  Log #<%= @log.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/logs">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_log_form/<%= @log.id %>">
+      Edit log
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_log/<%= @log.id %>">
+      Delete log
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Student
+  </dt>
+  <dd>
+    <%= @log.student_id %>
+  </dd>
+
+  <dt>
+    Case
+  </dt>
+  <dd>
+    <%= @log.case_id %>
+  </dd>
+
+  <dt>
+    Given by
+  </dt>
+  <dd>
+    <%= @log.given_by %>
+  </dd>
+
+  <dt>
+    Feedback
+  </dt>
+  <dd>
+    <%= @log.feedback %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@log.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@log.updated_at) %> ago
+  </dd>
+</dl>
+

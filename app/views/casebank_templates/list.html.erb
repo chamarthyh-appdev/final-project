@@ -1,0 +1,122 @@
+<h1>
+  Casebank list
+</h1>
+
+<a href="/new_casebank_form">
+  Add a new casebank
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Difficulty
+    </th>
+
+    <th>
+      Is brainstorm
+    </th>
+
+    <th>
+      Num exhibits
+    </th>
+
+    <th>
+      Casebook
+    </th>
+
+    <th>
+      Is math heavy
+    </th>
+
+    <th>
+      Case type
+    </th>
+
+    <th>
+      Industry
+    </th>
+
+    <th>
+      Is interviewer led
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @casebanks.each do |casebank| %>
+  <tr>
+    <td>
+      <%= casebank.id %>
+    </td>
+
+    <td>
+      <%= casebank.title %>
+    </td>
+
+    <td>
+      <%= casebank.difficulty %>
+    </td>
+
+    <td>
+      <%= casebank.is_brainstorm %>
+    </td>
+
+    <td>
+      <%= casebank.num_exhibits %>
+    </td>
+
+    <td>
+      <%= casebank.casebook_id %>
+    </td>
+
+    <td>
+      <%= casebank.is_math_heavy %>
+    </td>
+
+    <td>
+      <%= casebank.case_type %>
+    </td>
+
+    <td>
+      <%= casebank.industry %>
+    </td>
+
+    <td>
+      <%= casebank.is_interviewer_led %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(casebank.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(casebank.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/casebanks/<%= casebank.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
