@@ -1,31 +1,38 @@
 <h1>
-  Hello <%= current_user.name %>, add a new case log entry below: 
+  Hello <%=User.where({:id => current_user.id}).pluck(:name).first %>, add a new case log entry below: 
 </h1>
 
 <hr>
 
+<%= render("log_templates/validation_failures.html.erb") %>
 
 
-
-
-<form action="/insert_log_record" method="post">
+<form action="/add_case_log_entry">
+ 
   <div>
-    <label for="student_id">
-      Student
-    </label>
-
-    <input type="text" id="student_id" name="student_id" value="<%= @student_id %>">
+       <input type="hidden" id="student_id" name="student_id" value="<%= @student_id %>">
   </div>
 
-  <div>
-    <label for="case_id">
-      Case
-    </label>
+   <div class="form-group">
+   <label for="case_dropdown">Case Name</label>
+      <select id="case_dropdown" name="case_id" >
+        <% Casebank.all.order({ :title => :asc }).each do |a_case| %>
+          <option value="<%= a_case.id %>">
+            <%= a_case.title %>
+          </option>
+        <% end %>
+      </select>
 
-    <input type="text" id="case_id" name="case_id" placeholder="Choose a case">
+  </div>
+  
+   <div class="form-group">
+    <label for="practice_date">
+      Practice Date
+    </label>
+    <input type="date" id="practice_date" name="practice_date" value=<%=Date.today%>/>
   </div>
 
-  <div>
+   <div class="form-group">
     <label for="given_by">
       Given by
     </label>
@@ -33,21 +40,23 @@
     <input type="text" id="given_by" name="given_by" placeholder="Enter a name...">
   </div>
 
-  <div>
+ <div class="form-group">
     <label for="feedback">
       Feedback
     </label>
+    <div class="col-sm-6"> 
 
-    <input type="text" id="feedback" name="feedback" placeholder="Type in your feedback">
+    <textarea  class="form-control" id="feedback" name="feedback" placeholder="Type in your feedback"></textarea>
+    </div>
   </div>
 
   <button>
-    Create log
+    Add case log entry
   </button>
 </form>
 
 <hr>
 
-<a href="/logs">
+<a href="/case_log">
   Go back
 </a>

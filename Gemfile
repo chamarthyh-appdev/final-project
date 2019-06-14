@@ -18,7 +18,7 @@ gem "uglifier", ">= 1.3.0"
 gem "ransack"
 gem 'bootstrap'
 gem 'jquery-rails'
-
+gem 'date_picker'
 
 group :production do
   gem "pg"

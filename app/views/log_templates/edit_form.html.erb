@@ -1,0 +1,57 @@
+<h1>
+  <%=User.where({:id => current_user.id}).pluck(:name).first%>, edit your log entry here:
+</h1>
+
+<hr>
+
+<form action="/update_case_log_entry/<%= @log_entry.id %>">
+  <div class="form-group">
+
+    <input type="hidden" id="student_id" name="student_id" value="<%= @log_entry.student_id %>">
+  </div>
+
+   <div class="form-group">
+    <label for="case_id">
+      <%= Casebank.where({:id => @log_entry.case_id}).pluck(:title).first %>
+    </label>
+
+    <input type="hidden" id="case_id" name="case_id" value="<%= @log_entry.case_id %>">
+  </div>
+  
+   <div class="form-group">
+    <label for="practice_date">
+      Practice Date
+    </label>
+    <input type="date" id="practice_date" name="practice_date" value=<%= @log_entry.practice_date %>/>
+  </div>
+
+   <div class="form-group">
+    <label for="given_by">
+      Given by
+    </label>
+
+    <input type="text" id="given_by" name="given_by" value="<%= @log_entry.given_by %>">
+  </div>
+
+   <div class="form-group">
+    <label for="feedback">
+      Feedback
+    </label>
+    <div class="col-sm-6"> 
+
+    <textarea class="form-control" id="feedback" name="feedback" rows=3><%= @log_entry.feedback%></textarea>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary">
+    Update log
+  </button>
+</form>
+
+
+
+<hr>
+
+<a href="/case_log">
+  Go back
+</a>

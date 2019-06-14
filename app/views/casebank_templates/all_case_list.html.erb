@@ -13,22 +13,30 @@
        
     
     
-    <div class="col-sm-3">
+    <div class="col-sm-2">
        <!-- <div class="form-group"> -->
           <%= f.label :case_name_cont, "Case Name" %>
           <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
         <!--</div>-->
       </div>
       
-    <div class="col-sm-3">
+    <div class="col-sm-2">
     
      <!-- <div class="form-group"> -->
         <%= f.label :difficulty_eq, "Difficulty" %>
         <%= f.select :difficulty_eq, options_for_select(["easy", "medium", "hard"]), { :include_blank => "(Select Difficulty)" }, :class => "form-control" %>
      <!-- </div> -->
      </div>
+     
+      <div class="col-sm-2">
+    
+        <!--<div class="form-group">-->
+          <%= f.label :is_interviewer_led_eq, "Interviewer Led?" %>
+          <%= f.select :is_interviewer_led_eq, options_for_select(["true", "false"]), { :include_blank => "(Select T/F)" }, :class => "form-control" %>
+        <!--</div>-->
+      </div>
       
-      <div class="col-sm-3">
+      <div class="col-sm-2">
     
         <!--<div class="form-group">-->
           <%= f.label :is_brainstorm_eq, "Brainstorm Heavy?" %>
@@ -36,14 +44,20 @@
         <!--</div>-->
       </div>
       
-     
+      <div class="col-sm-2">
+    
+        <!--<div class="form-group">-->
+          <%= f.label :is_math_heavy_eq, "Math Heavy?" %>
+          <%= f.select :is_math_heavy_eq, options_for_select(["true", "false"]), { :include_blank => "(Select Y/N)" }, :class => "form-control" %>
+        <!--</div>-->
+      </div>
      
       
   
-      <div class="col-sm-3">
+      <div class="col-sm-1.75">
         <%= f.submit :class => "btn btn-primary btn-block" %>
         
-        <a href="/casebanks" class="btn btn-default btn-block">Clear filters</a>
+        <a class="btn btn-secondary" href="/casebanks" class="btn btn-default btn-block">Clear filters</a>
       </div>
       
       </div>
@@ -62,10 +76,12 @@
         <th>Difficulty</th>
         <th>Case Type</th>
         <th>Industry</th>
+        <th>Interviewer Led?</th>
         <th>Good for Brainstorming?</th>
         <th>Good for Math?</th>
         <th># of Exhibits</th>
         <th>Case Book</th>
+        <th></th>
       </tr>
       </thead>
     
@@ -88,6 +104,14 @@
         </td>
         
         <td>
+          <%= if mockcase.is_interviewer_led
+              then "Yes"
+              else "No"
+              end%>
+        </td>
+        
+        
+        <td>
           <%= if mockcase.is_brainstorm
               then "Yes"
               else "No"
@@ -95,7 +119,7 @@
         </td>
         
         <td>
-          <%= if mockcase.is_math_heavy == "1"
+          <%= if mockcase.is_math_heavy == "true"
               then "Yes"
               else "No"
               end %>
@@ -108,6 +132,11 @@
         <td>
           <a href = "https://northwestern.app.box.com/s/47jo3cmxqzbww1tmgma8nywlsze2ej13/file/321872053956" target="_blank">
             Kellogg 2018
+          </a>
+        </td>
+        <td>
+          <a class="btn btn-success" href="/add_case_log_wishlist/<%= mockcase.id %>">
+          + Wish List
           </a>
         </td>
       </tr>

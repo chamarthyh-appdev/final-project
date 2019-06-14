@@ -146,6 +146,8 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
+    date_picker (0.0.9)
+      rails (>= 4.0.3)
     debug_inspector (0.0.3)
     devise (4.6.2)
       bcrypt (~> 3.0)
@@ -415,6 +417,7 @@ DEPENDENCIES
   capybara
   coffee-rails
   console_ip_whitelist!
+  date_picker
   devise
   dotenv-rails
   draft_generators!
