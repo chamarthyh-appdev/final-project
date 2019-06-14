@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   # CREATE
   match("/add_case_log_entry", { :controller => "case_log", :action => "add_new_row", :via => "get" })
   match("/add_case_log_wishlist/:id_to_add", { :controller => "case_log", :action => "add_new_wishlist", :via => "get" })
+  match("/new_log_entry", {:controller => "case_log", :action => "new_entry_form", :via => "get"})
+
   # READ
   match("/casebanks", { :controller => "casebanks", :action => "list", :via => "get" })
   match("/casebanks/:id_to_display", { :controller => "casebanks", :action => "details", :via => "get" })
+  match("/case_log", {:controller => "case_log", :action => "show_case_log", :via => "get"})
+
 
   # UPDATE
   match("/existing_case_log_entry/:id_to_update", { :controller => "case_log", :action => "show_edit_page", :via => "get" })
@@ -21,10 +25,10 @@ Rails.application.routes.draw do
   #------------------------------
 
   match("/", {  :controller => "home_page", :action => "show_home_page", :via => "get"})
-
-  match("/case_log", {:controller => "case_log", :action => "show_case_log", :via => "get"})
   
-  match("/new_log_entry", {:controller => "case_log", :action => "new_entry_form", :via => "get"})
+  match("/kcc_resources", { :controller => "home_page", :action => "show_details_page", :via => "get"})
+
+  
 
 # Ignore the below
   devise_for :admin_users, ActiveAdmin::Devise.config
